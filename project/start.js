@@ -13,12 +13,11 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-
-app.get('/projects', function(request, response) {
+app.get('/map', function(request, response) {
   response.render('pages/map');
 });
 
-app.get('/contact', function(request, response) {
+app.get('/journal', function(request, response) {
   response.render('pages/journal');
 });
 
