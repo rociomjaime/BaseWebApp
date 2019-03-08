@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title id="title">TomaMaps</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuyxCX9-Uyl0cF4ySJCI-Z6vGxBCfUYyg&libraries=places"></script>
+   <style>
+   #mapid{ height: 500px; width: 600px; margin: auto;},
+   #title{ margin: auto; }
+  </style>
+</head>
+<body>
+
+
+<div class="jumbotron text-center">
+  <h1>TomaMaps</h1>
+</div>
+
+ <div id="mapid"></div>
+
+ <script>
+
+
+ var mymap = L.map('mapid').setView([-33.705929, -64.906050], 5);
+
+
+ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: 'pk.eyJ1IjoicmphaW1lIiwiYSI6ImNqcDR3NHFjcDA1cGszcWxtZGp1aTJlbTUifQ.u66Co-or81f8xdZJkwTPeQ'
+}).addTo(mymap);
+
+
+var mardelplata = L.circleMarker([-38.005447, -57.571007], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+var mendoza = L.circleMarker([-32.881376, -68.877127], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+
+var UBA = L.circleMarker([-34.628134, -58.446362], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+
+var rosario = L.circleMarker([-32.939982, -60.665051], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+
+var pampa = L.circleMarker([-36.620430, -64.289876], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+var rio = L.circleMarker([-38.933116, -67.994453], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+var comahue = L.circle([-38.940179, -68.057483], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+var UNSL = L.circleMarker([-33.292110, -66.339630], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+var UNER = L.circleMarker([-32.484153, -58.231294], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+var cordoba = L.circleMarker([-31.435528, -64.185860], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+var UNL = L.circleMarker([-31.634960, -60.705203], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+var laplata = L.circleMarker([-34.900331, -57.931794], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+var UNS = L.circleMarker([-38.701926, -62.270133], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 5
+}).addTo(mymap);
+
+
+//add markers to map on click
+var theMarker = {};
+
+ mymap.on("click",function(e){
+
+   lat = e.latlng.lat;
+   lon = e.latlng.lng;
+
+   //console.log("You clicked the map at LAT: "+ lat+" and LONG: "+lon );
+       //Clear existing marker,
+
+       // if (theMarker != undefined) {
+       //       mymap.removeLayer(theMarker);
+       // };
+
+   //Add a marker to show where you clicked.
+    theMarker = L.circleMarker([lat,lon], {color: 'red', radius: 5}).addTo(mymap);
+});
+
+new L.Control.GPlaceAutocomplete({
+	callback: function(place){
+		var loc = place.geometry.location;
+		map.setView( [loc.lat(), loc.lng()], 18);
+	}
+}).addTo(map);
+
+</script>
+</body>
+</html>
