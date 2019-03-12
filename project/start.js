@@ -10,15 +10,15 @@ app.set('views', __dirname + '/html');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.render('index');
+  response.render('pages/index');
 });
 
 app.get('/map', function(request, response) {
-  response.render('map');
+  response.render('pages/map');
 });
 
 app.get('/journal', function(request, response) {
-  response.render('journal');
+  response.render('pages/journal');
 });
 
 app.listen(app.get('port'), function() {
