@@ -25,6 +25,14 @@ app.get('/tradeoff', function(request, response) {
   response.render('pages/tradeoff');
 });
 
+app.get('/tradeoff-brogrammers', function(request, response) {
+  response.render('pages/tradeoff-brogrammers');
+});
+
+app.get('/tradeoff-smith', function(request, response) {
+  response.render('pages/tradeoff-smith');
+});
+
 app.get('/opensource', function(request, response) {
   response.render('pages/opensource');
 });
