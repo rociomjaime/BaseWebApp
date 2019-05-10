@@ -1,0 +1,100 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <% include ../helpers/head %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Tech and Activism Map</title>
+    <style>
+      html, body, #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+      .esri-editor .esri-item-list__scroller {
+        max-height: 350px;
+      }
+    </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.11/"></script>
+    <script>
+      require([
+         // "esri/Map",
+          "esri/WebMap",
+          "esri/views/MapView",
+         "esri/widgets/Search",
+          "esri/widgets/Editor"
+          // "esri/layers/FeatureLayer"
+       ], function(WebMap, MapView, Search, Editor) {
+        //  Create a map frm the referenced webmap item id
+          let webmap = new WebMap({
+            portalItem: {
+              id: "304a4490609d4c8990c77fdc11c24522",
+            }
+          });
+
+        // var map = new Map({
+        //   basemap: "streets-night-vector"
+        // });
+
+
+
+        var view = new MapView({
+          container: "viewDiv",
+          map: webmap
+        //  center: [-64.906050, -38.705929],
+        //  zoom: 3
+        });
+
+        //Search widget
+        var search = new Search({
+          view: view
+        });
+
+        //Function for each University popup
+        var popupSchools = {
+          "title": "University",
+          "content": '<b>University</b> {names}<br> <img src="{img}">'
+        }
+
+        view.when(function() {
+          view.popup.autoOpenEnabled = false; //disable popups
+
+          // Create the Editor
+          let editor = new Editor({
+            view: view
+          });
+
+          // Add widget to top-right of the view
+          view.ui.add(editor, "bottom-right");
+        });
+
+
+
+        // FeatureLayer for each university
+        // var schools = new FeatureLayer({
+        //   url: "https://services.arcgis.com/aMv9lrl6jFsuGNu8/arcgis/rest/services/schools/FeatureServer/0?token=lVTzZvhlfwLFz3OS5AJ2JUndRNMKxS83ddLxpywELwOcGLbH7t9orB_cdyBxGRsJtUvpmCSjUQy3OOiFLNdXCoc342NhFDaefu-rGZt2szPtAK65SIPJmnSxKosAEKvDVfXVmJlo5T0fFPnH96TSOtoiMhbv9kMzuWgLBYZojXr-GW430x-nvulJLazo5x5gzdJDOO4RSraPZKDNKZrM4D4AOwRotGCYmpi96SxwGcg.",
+        //   outFields: ["names", "img"],
+        //   popupTemplate: popupSchools
+        // });
+
+
+       view.ui.add(search, "top-right"); // Add to the view
+      // map.add(schools);
+        // Add widget to top-right of the view
+      //  view.ui.add(editor, "bottom-right");
+
+
+      });
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <% include ../helpers/navbar %>
+    </header>
+    <div id="viewDiv"></div>
+    <div id="editorDiv"></div>
+  </body>
+</html> -->

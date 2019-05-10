@@ -21,6 +21,14 @@ app.get('/journal', function(request, response) {
   response.render('pages/journal');
 });
 
+app.get('/tradeoff', function(request, response) {
+  response.render('pages/tradeoff');
+});
+
+app.get('/opensource', function(request, response) {
+  response.render('pages/opensource');
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
